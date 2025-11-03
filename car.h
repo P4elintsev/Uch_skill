@@ -1,15 +1,16 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 
 class Cars
 {
 protected:
-    //торговая_марка
+    // торговая_марка
     std::string name_;
-    //число_цилиндров
+    // число_цилиндров
     int cylinder_;
-    //мощность
+    // мощность
     int power_;
 
 private:
@@ -35,12 +36,11 @@ public:
         ++count_;
     };
     // деструктор
-    ~Cars()
-    {
+    ~Cars() {
     };
 
-    //дружественная функция count
-    friend int count(const Cars& cars);
+    // дружественная функция count
+    friend int count(const Cars &cars);
 
     void setName(const std::string &name);
 
@@ -55,3 +55,7 @@ public:
     int getPower() const;
 };
 inline int Cars::count_ = 0;
+
+std::ostream &operator<<(std::ostream &out, const Cars &cars);
+
+std::istream &operator>>(std::istream &in, Cars &cars);
